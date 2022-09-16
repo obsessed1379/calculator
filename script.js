@@ -1,46 +1,67 @@
     new Vue({
     el:"#app",
     data:{
-        firstNumb:'',
-        secondNumb:'',
-        operator:''
+        currentNumber:'0',
+        allNumbers:'',
+        numbers:[],
+        operators:[]
     },
     computed:{
         output(){
-            return this.firstNumb + this.operator + this.secondNumb 
+            if(this.numbers.length > 0){
+                this.allNumbers = ""
+                this.numbers.forEach((number, index) => {
+                    this.allNumbers += number + this.operators[index]
+                })
+            }
+            
+            return this.allNumbers + this.currentNumber
         }
     },
     methods:{
         number: function(char){
-            if (this.firstNumb == "0") {
-                this.firstNumb=""
+            if (this.currentNumber == "0") {
+                this.currentNumber = ""
             }
-            this.operator !== "" ? this.secondNumb += char : this.firstNumb += char 
+            this.currentNumber += char
         },
-        operators:function(char){
-            this.operator = char
+        setOperator:function(char){
+            this.numbers.push(this.currentNumber)
+            this.operators.push(char)
+            this.currentNumber = ""
         },
         clear:function(){
-            this.operator=this.secondNumb=""
-            this.firstNumb="0"
+            this.operators = this.numbers = []
+            this.currentNumber="0"
         },
         result: function(){
-            switch (this.operator) {
-                case "+":
-                    this.firstNumb=parseFloat(this.firstNumb) +parseFloat(this.secondNumb)
+            this.numbers.push(this.currentNumber)
+            let NumberLength = this.numbers.length
+            let fNumber = this.numbers[0]
+            let sNumber = 0
+            
+            for(let i = 1; i < NumberLength; i++){
+                sNumber = this.numbers[i]
+
+                switch (this.operators[i - 1]) {
+                    case "+":
+                        fNumber = parseFloat(fNumber) + parseFloat(sNumber)
+                        break;
+                     case "-":
+                        fNumber = parseFloat(fNumber) - parseFloat(sNumber)
+                        break;
+                    case "*":
+                        fNumber = parseFloat(fNumber) * parseFloat(sNumber)
                     break;
-                 case "-":
-                    this.firstNumb=parseFloat(this.firstNumb) - parseFloat(this.secondNumb)
-                    break;
-                case "*":
-                    this.firstNumb=parseFloat(this.firstNumb) * parseFloat(this.secondNumb)
-                break;
-                case "/":
-                    this.firstNumb=parseFloat(this.firstNumb) / parseFloat(this.secondNumb)
-                break;
+                    case "/":
+                        fNumber = parseFloat(fNumber) / parseFloat(sNumber)
+                    break;   
+                }
             }
-            this.secondNumb=""
-            this.operator=""
+
+            this.numbers = []
+            this.allNumbers = ""
+            this.currentNumber = fNumber
         }
     }
 })

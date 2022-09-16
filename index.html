@@ -13,25 +13,25 @@
             </div>
             <div class="w-full bg-gradient-to-b from-indigo-400 to-indigo-500">
                 <div class="flex w-full">
-                    <button @click="operators('/')" class="h-16 text-white text-xl hover:bg-indigo-500 text-opacity-50 w-1/4 border-r border-b border-indigo-400">/</button>
+                    <button @click="setOperator('/')" class="h-16 text-white text-xl hover:bg-indigo-500 text-opacity-50 w-1/4 border-r border-b border-indigo-400">/</button>
                     <button class="h-16 text-white text-xl hover:bg-indigo-500 text-opacity-50 w-1/4 border-r border-b border-indigo-400">+/-</button>
                     <button class="h-16 text-white text-xl hover:bg-indigo-500 text-opacity-50 w-1/4 border-r border-b border-indigo-400">%</button>
                     <button @click='clear()' class="h-16 text-white text-xl hover:bg-indigo-500 text-opacity-50 w-1/4 border-r border-b border-indigo-400">C</button>
                 </div>
                 <div class="flex w-full">
-                    <button @click="operators('*')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">*</button>
+                    <button @click="setOperator('*')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">*</button>
                     <button @click='number(9)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">9</button>
                     <button @click='number(8)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">8</button>
                     <button @click='number(7)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">7</button>
                 </div>
                 <div class="flex w-full">
-                    <button @click="operators('-')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">-</button>
+                    <button @click="setOperator('-')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">-</button>
                     <button @click='number(6)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">6</button>
                     <button @click='number(5)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">5</button>
                     <button @click='number(4)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">4</button>
                 </div>
                 <div class="flex w-full">
-                    <button @click="operators('+')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">+</button>
+                    <button @click="setOperator('+')" class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">+</button>
                     <button @click='number(3)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">3</button>
                     <button @click='number(2)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">2</button>
                     <button @click='number(1)' class="h-16 text-white text-xl hover:bg-indigo-500 w-1/4 border-r border-b border-indigo-400">1</button>
